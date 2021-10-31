@@ -1,0 +1,14 @@
+<mat-grid-list cols="3" rowHeight="1:1">
+  <mat-grid-tile *ngFor="let i of catalog">
+    <div class="item">
+      <div>{{i.category}}</div>
+      <div><img alt="" src="{{i.image}}"></div>
+      <div>{{i.description}}</div>
+      <div>up to {{i.price}}$</div>
+      <div [ngClass]="{'green': i.featured}" class="availability">Availability</div>
+    </div>
+    <mat-grid-tile-footer>
+      <div>{{i.name}}</div>
+    </mat-grid-tile-footer>
+  </mat-grid-tile>
+</mat-grid-list>
