@@ -1,5 +1,23 @@
 <router-outlet></router-outlet>
-<mat-toolbar>
-  <span>Vasyl Zdendiak app</span>
-</mat-toolbar>
-<app-catalog></app-catalog>
+<div class="content">
+  <mat-toolbar>
+    <span>Vasyl Zdendiak app</span>
+  </mat-toolbar>
+
+  <mat-drawer-container>
+    <mat-drawer mode="side" opened>
+      <mat-list>
+        <div *ngFor="let group of categories$ | async"
+             class="list-item"
+             [ngClass]="{'active': group.category == this.selectedCategory.category}"
+             (click)="filterItems(group)">
+          <mat-list-item>{{group.category}}</mat-list-item>
+          <mat-divider></mat-divider>
+        </div>
+      </mat-list>
+    </mat-drawer>
+    <mat-drawer-content>
+      <app-catalog [catalog]="items$ | async"></app-catalog>
+    </mat-drawer-content>
+  </mat-drawer-container>
+</div>

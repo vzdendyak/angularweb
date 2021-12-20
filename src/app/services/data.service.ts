@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Item} from '../shared/models/item';
+import {BehaviorSubject} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -337,7 +338,22 @@ export class DataService {
       ]
     },
   ];
+  positions: Item[] = [];
+  positions$ = new BehaviorSubject<Item[]>([]);
 
   constructor() {
+    for (let i = 1; i < 100; i++) {
+      const item = {
+        id: i,
+        name: 'Name ' + i,
+        image: 'https://picsum.photos/600/430',
+        description:
+          'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book',
+        category: 'Category ' + (1 + Math.floor(Math.random() * 6)),
+        price: i * 20,
+      } as Item;
+      this.positions.push(item);
+    }
+    this.positions$.next(this.positions);
   }
 }

@@ -1,19 +1,20 @@
 <div class="list">
-
-  <mat-grid-list cols="3" rowHeight="1:1">
+  <mat-grid-list cols="3" rowHeight="2:3">
     <mat-grid-tile *ngFor="let i of catalog">
-      <div class="item" (click)="onSelectItem(i)">
-        <div>{{i.category}}</div>
-        <div><img alt="" src="{{i.image}}"></div>
-        <div>{{i.description}}</div>
-        <div>up to {{i.price}}$</div>
-        <div [ngClass]="{'green': i.featured}" class="availability">Availability</div>
-      </div>
-      <mat-grid-tile-footer>
-        <div>{{i.name}}</div>
-      </mat-grid-tile-footer>
+      <mat-card class="example-card">
+        <img mat-card-image src="{{i.image}}" width="100px" alt="Photo of a Shiba Inu">
+        <mat-card-header>
+          <mat-card-title>{{i.name}}</mat-card-title>
+          <mat-card-subtitle>{{i.category}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <p>{{i.description}}</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button>Price - {{i.price}} $</button>
+          <button mat-button></button>
+        </mat-card-actions>
+      </mat-card>
     </mat-grid-tile>
   </mat-grid-list>
 </div>
-
-<app-item-detail [item]="selectedItem"></app-item-detail>

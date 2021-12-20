@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {DataService} from '../../services/data.service';
 import {Item} from '../../shared/models/item';
 
@@ -8,19 +8,14 @@ import {Item} from '../../shared/models/item';
   styleUrls: ['./catalog.component.scss']
 })
 export class CatalogComponent implements OnInit {
-  catalog: Item[];
-  selectedItem: Item;
+  @Input() catalog: Item[];
 
-  constructor(private dataService: DataService) {
-    this.catalog = dataService.items;
-    this.selectedItem = this.catalog[0];
+  constructor() {
+
   }
 
   ngOnInit(): void {
   }
 
-  onSelectItem(item: Item): void {
-    this.selectedItem = item;
-  }
 
 }

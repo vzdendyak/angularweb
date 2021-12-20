@@ -12,6 +12,7 @@ import { ItemDetailComponent } from './components/item-detail/item-detail.compon
 import {MatCardModule} from '@angular/material/card';
 import {MatButton, MatButtonModule} from '@angular/material/button';
 import {MatListModule} from '@angular/material/list';
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import {MatListModule} from '@angular/material/list';
     MatGridListModule,
     MatCardModule,
     MatButtonModule,
-    MatListModule
+    MatListModule,
+    MatSidenavModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
