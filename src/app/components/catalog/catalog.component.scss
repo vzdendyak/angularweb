@@ -10,8 +10,16 @@
 .green {
   background-color: green;
 }
+
 mat-grid-tile {
   background: lightblue;
   border-radius: 5px;
 }
 
+.header {
+  width: 100%;
+
+  mat-form-field {
+    width: 100%;
+  }
+}

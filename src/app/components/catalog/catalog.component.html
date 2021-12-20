@@ -1,3 +1,13 @@
+<div class="header">
+  <mat-form-field class="example-form-field" appearance="fill">
+    <mat-label>Search by name, category or description</mat-label>
+    <input matInput type="text" [formControl]="searchForm">
+    <button *ngIf="searchForm.value.length" matSuffix mat-icon-button aria-label="Clear"
+            (click)="searchForm.patchValue('')">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+</div>
 <div class="list">
   <mat-grid-list cols="3" rowHeight="2:3">
     <mat-grid-tile *ngFor="let i of catalog">
@@ -12,9 +22,14 @@
         </mat-card-content>
         <mat-card-actions>
           <button mat-button>Price - {{i.price}} $</button>
-          <button mat-button></button>
+          <button mat-button (click)="itemSelected.next(i)">+</button>
         </mat-card-actions>
       </mat-card>
     </mat-grid-tile>
   </mat-grid-list>
+
+  <mat-paginator #paginator [pageSize]="pageSize" [pageSizeOptions]="[10, 25, 50]" [showFirstLastButtons]="true"
+                 [length]="totalSize" [pageIndex]="currentPage" (page)="handlePage($event)" aria-label="Select page">
+  </mat-paginator>
+
 </div>

@@ -2,6 +2,9 @@
 <div class="content">
   <mat-toolbar>
     <span>Vasyl Zdendiak app</span>
+    <button mat-icon-button class="example-icon" (click)="openBucket()">
+      <mat-icon>shopping_basket</mat-icon>
+    </button>
   </mat-toolbar>
 
   <mat-drawer-container>
@@ -17,7 +20,15 @@
       </mat-list>
     </mat-drawer>
     <mat-drawer-content>
-      <app-catalog [catalog]="items$ | async"></app-catalog>
+      <app-catalog
+        [catalog]="items$ | async"
+        [currentPage]="currentPage"
+        [totalSize]="totalSize"
+        [pageSize]="pageSize"
+        (searchFilterChanged)="searchFilter.next($event)"
+        (pageChanged)="handlePage($event)"
+        (itemSelected)="addToBucket($event)"
+      ></app-catalog>
     </mat-drawer-content>
   </mat-drawer-container>
 </div>

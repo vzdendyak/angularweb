@@ -1,0 +1,22 @@
+<div *ngIf="!data.length;else templateName" style="text-align: center;">
+  Empty
+</div>
+
+<ng-template #templateName>
+  <mat-card class="example-card" *ngFor="let item of data; index as i">
+    <mat-card-title-group>
+      <mat-card-title>
+        {{item.name}}
+        <button mat-mini-fab color="warn" style="font-size: 20px; margin-left: 30px;"
+                (click)="removeFromBucket(i)">-
+        </button>
+      </mat-card-title>
+      <mat-card-subtitle>{{item.category}}</mat-card-subtitle>
+      <mat-card-subtitle>Price - {{item.price}} $</mat-card-subtitle>
+      <img mat-card-lg-image src="{{item.image}}">
+    </mat-card-title-group>
+    <mat-card-content>
+      {{item.description}}
+    </mat-card-content>
+  </mat-card>
+</ng-template>
