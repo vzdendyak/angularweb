@@ -9,12 +9,18 @@ import {Item} from '../../shared/models/item';
 })
 export class CatalogComponent implements OnInit {
   catalog: Item[];
+  selectedItem: Item;
 
   constructor(private dataService: DataService) {
     this.catalog = dataService.items;
+    this.selectedItem = this.catalog[0];
   }
 
   ngOnInit(): void {
+  }
+
+  onSelectItem(item: Item): void {
+    this.selectedItem = item;
   }
 
 }

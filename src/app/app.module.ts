@@ -8,11 +8,16 @@ import {FlexLayoutModule} from '@angular/flex-layout';
 import {CatalogComponent} from './components/catalog/catalog.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import { ItemDetailComponent } from './components/item-detail/item-detail.component';
+import {MatCardModule} from '@angular/material/card';
+import {MatButton, MatButtonModule} from '@angular/material/button';
+import {MatListModule} from '@angular/material/list';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CatalogComponent
+    CatalogComponent,
+    ItemDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -20,7 +25,10 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     BrowserAnimationsModule,
     FlexLayoutModule,
     MatToolbarModule,
-    MatGridListModule
+    MatGridListModule,
+    MatCardModule,
+    MatButtonModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

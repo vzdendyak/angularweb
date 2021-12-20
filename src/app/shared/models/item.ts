@@ -1,4 +1,6 @@
-export class Item {
+import {Comment} from './comment';
+
+export interface Item {
   id: number;
   name: string;
   image: string;
@@ -7,4 +9,5 @@ export class Item {
   description: string;
   featured: boolean;
   price: number;
+  comments: Comment[];
 }
